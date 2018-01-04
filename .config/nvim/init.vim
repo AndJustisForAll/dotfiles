@@ -17,13 +17,8 @@ Plug 'bling/vim-airline'
 " JS beautifier
 Plug 'maksimr/vim-jsbeautify'
 call plug#end()
-" ********************* ALDUIN SCHEME ********************* "
-colorscheme alduin
-let g:alduin_Shout_Fire_Breath = 1
-
 " *********************** DEFAULT ************************** "
 syntax on
-
 " enables filetype detection,
 " enables filetype-specific scripts (ftplugins),
 " enables filetype-specific indent scripts.
@@ -31,7 +26,6 @@ filetype plugin indent on
 
 " Makes the cursor a pipe in insert mode and block in normal mode
 :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
 
 " ****************** SPACES & TABS ************************** "
 "For indents that consist of 4 space characters but are entered with the tab key:
