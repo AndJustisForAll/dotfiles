@@ -9,14 +9,22 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'benekastah/neomake'
 " Deoplete - Dark powered async completion framwork for neovim 
 Plug 'shougo/deoplete.nvim'
-" Fzf - commandline fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install -all' }
-Plug 'junegunn/fzf.vim'
+" CtrlP - commandline fuzzy finder
+Plug 'kien/ctrlp.vim'
 " Airline - file status and tab line bar
 Plug 'bling/vim-airline'
 " JS beautifier
 Plug 'maksimr/vim-jsbeautify'
+" Fugitive Git wrapper
+Plug 'tpope/vim-fugitive'
 call plug#end()
+
+" ******************* Plugins initialization
+" CtrlP - Ignore some folders and files for CtrlP indexing
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp$',
+  \ 'file': '\.so$\|\.dat$|\.DS_Store$'
+  \ }
 " *********************** DEFAULT ************************** "
 syntax on
 " enables filetype detection,
@@ -71,18 +79,18 @@ nnoremap gV '[v']
 let mapleader=","        " leader is comma
 " q is escape in insert mode
 inoremap hh <esc>
-" toggle gundo - display undo tree in graphical from
-nnoremap <leader>u :GundoToggle<CR>
-" open ag.vim
-" Needs the silver searcher vim plugin
-nnoremap <leader>a :Ag
 " toggle NERDTree
 nnoremap <leader>1 :NERDTreeToggle<CR>
-" toggle fzf - fuzzy search
-nnoremap <leader>2 :Files<CR>
+" toggle CtrlP - fuzzy search
+nnoremap <leader>2 :CtrlP<CR>
 " Remap command key
 nnoremap <leader>; :
 " Switch between VIM viewports
 nnoremap <leader><tab> <c-w>w
 " Format JS code
 nnoremap <leader><c-f> :call JsBeautify()<CR>
+" Fugitive Vim mappings
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gb :Gblame<CR>
+
+
