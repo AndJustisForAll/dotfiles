@@ -27,10 +27,6 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'tpope/vim-fugitive'
 " Vim Gitgutter - Git gutter line
 Plug 'airblade/vim-gitgutter'
-" Emmet for Vim
-Plug 'mattn/emmet-vim'
-" Vim JSX
-Plug 'mxw/vim-jsx'
 "Seoul256 Theme
 Plug 'junegunn/seoul256.vim'
 "Alduin Theme
@@ -43,8 +39,6 @@ call plug#end()
 " ******************* Plugins initialization
 "Seoul256 Theme
 colo seoul256
-set background=dark
-set termguicolors
 
 " Alduin Theme
 " colorscheme alduin
@@ -55,13 +49,6 @@ set termguicolors
 " Dark red special
 " let g:alduin_Shout_Fire_Breath = 1
 
-"JSX for vim
-let g:jsx_ext_required = 0 "JSX within .js files
-" Emmet for Vim
-let g:user_emmet_mode='n'    "only enable normal mode functions.
-let g:user_emmet_install_global = 0 " only Enable for html/css
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key='<C-Z>' "Redefine trigger
 " Vim -Javascript
 let g:javascript_plugin_jsdoc = 1
 " Deoplete
