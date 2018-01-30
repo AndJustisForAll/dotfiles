@@ -15,6 +15,8 @@ else
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
+" Far vim - search and replace across files
+Plug 'brooth/far.vim'
 " Vim-Javascript
 Plug 'pangloss/vim-javascript'
 " CtrlP - commandline fuzzy finder
@@ -61,7 +63,7 @@ let g:jsx_ext_required = 0 "JSX within .js files
 let g:user_emmet_mode='n'    "only enable normal mode functions.
 let g:user_emmet_install_global = 0 " only Enable for html/css
 autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key='<C-Z>' "Redefine trigger
+let g:user_emmet_leader_key='<C-E>' "Redefine trigger
 " Vim -Javascript
 let g:javascript_plugin_jsdoc = 1
 " Deoplete
@@ -136,7 +138,10 @@ nnoremap <leader>; :
 " Switch between VIM viewports
 nnoremap <leader><tab> <c-w>w
 " Format JS code
-nnoremap <leader><c-f> :call JsBeautify()<CR>
+nnoremap <leader>// :call JsBeautify()<CR>
+" Far -search and replace
+nnoremap <leader>ff :Farp
+nnoremap <leader>fd :Fardo
 " Fugitive Vim mappings
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gb :Gblame<CR>
