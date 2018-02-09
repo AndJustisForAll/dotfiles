@@ -1,14 +1,14 @@
 # Easier navigation
 alias ..    = "cd .."
 alias ...   = "cd ../.."
-alias ....  ="cd ../../.."
-alias ..... ="cd ../../../.."
+alias ....  = "cd ../../.."
+alias ..... = "cd ../../../.."
 
 #shortcuts
 alias ~  = "cd ~" # `cd` is probably faster to type though
 alias dl = "cd ~/Downloads"
-alias dt = "cd ~/Downloads"
-
+alias dt = "cd ~/Desktop"
+alias rep = "cd ~/dev/"
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -41,4 +41,4 @@ alias chromekill = "ps ux | grep '[C]hrome Helper --type=renderer' | grep -v ext
 alias path = "echo -e ${PATH//:/\\n}"
 
 # Reload
-alias reload = "source ~/dotfiles/oh-my-zsh.sh"
+alias rld = "source ~/dotfiles/oh-my-zsh.sh"
