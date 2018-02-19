@@ -21,6 +21,8 @@ Plug 'brooth/far.vim'
 Plug 'pangloss/vim-javascript'
 " CtrlP - commandline fuzzy finder
 Plug 'kien/ctrlp.vim'
+" CtrlP Smart tabs - tabs feature
+Plug 'davidegx/ctrlp-smarttabs'
 " Airline - file status and tab line bar
 Plug 'bling/vim-airline'
 " JS beautifier
@@ -73,6 +75,10 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp$',
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
+let g:ctrlp_show_hidden = 1
+" CtrlP Smart tabs
+let g:ctrlp_extensions = ['smarttabs']
+
 " Vim Gitgutter
 let g:gitgutter_max_signs = 500  " default value
 " *********************** DEFAULT ************************** "
@@ -131,8 +137,8 @@ let mapleader=","        " leader is comma
 inoremap hh <esc>
 " toggle NERDTree
 nnoremap <leader>1 :NERDTreeToggle<CR>
-" toggle CtrlP - fuzzy search
-nnoremap <leader>2 :CtrlP<CR>
+" toggle CtrlP - fuzzy file search
+nnoremap <leader>2 :CtrlPSmartTabs<CR>
 " Remap command key
 nnoremap <leader>; :
 " Switch between VIM viewports
