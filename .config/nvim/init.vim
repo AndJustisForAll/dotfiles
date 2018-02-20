@@ -31,6 +31,10 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'tpope/vim-fugitive'
 " Vim Gitgutter - Git gutter line
 Plug 'airblade/vim-gitgutter'
+" Surround Vim
+Plug 'tpope/vim-surround'
+" Commentary Vim
+Plug 'tpope/vim-commentary'
 " Emmet for Vim
 Plug 'mattn/emmet-vim'
 " Vim JSX
@@ -40,13 +44,12 @@ Plug 'junegunn/seoul256.vim'
 "Alduin Theme
 "https://github.com/rafi/awesome-vim-colorschemes
 "https://github.com/AlessandroYorba/Alduin
-Plug 'AlessandroYorba/Alduin', { 'as': 'alduin' }
+"Plug 'AlessandroYorba/Alduin', { 'as': 'alduin' }
 call plug#end()
-
 
 " ******************* Plugins initialization
 "Seoul256 Theme
-colo seoul256
+color seoul256
 set background=dark
 set termguicolors
 
@@ -152,4 +155,6 @@ nnoremap <leader>fd :Fardo
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gb :Gblame<CR>
 
-
+" Surround Vim
+"https://vi.stackexchange.com/questions/12271/how-can-i-change-mapping-for-vim-surround-plugin
+nmap <leader>sw ysiw
