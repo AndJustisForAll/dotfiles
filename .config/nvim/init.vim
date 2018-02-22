@@ -136,8 +136,11 @@ nnoremap gV '[v']
 
 " *********************** LEADER SHORTCUTS **************************"
 let mapleader=","        " leader is comma
+nnoremap <leader>qq :q<CR>
+nnoremap <leader>ww :w<CR>
+nnoremap <leader>wq :wq<CR>
 " q is escape in insert mode
-inoremap hh <esc>
+inoremap jk <esc>
 " toggle NERDTree
 nnoremap <leader>1 :NERDTreeToggle<CR>
 " toggle CtrlP - fuzzy file search
