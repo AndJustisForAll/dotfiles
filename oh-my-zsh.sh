@@ -1,12 +1,21 @@
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{aliases}; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
 
+# Load all of your custom configurations from custom/
+# for config_file ($ZSH_CUSTOM/*.zsh(N)); do
+  # source $config_file
+# done
+# unset config_file
+DEFAULT_USER=`whoami`;
+DEFAULT_DOTFILES_DIR="/home/$DEFAULT_USER/dotfiles";
 
+# find $DEFAULT_DOTFILES_DIR + "/" -name "*.zsh" -print0 | while read -d $'\0' fname; do
+  # [[ ! -e $fname ]] && continue  # continue, if file does not exist
+  # [ -r "$fname" ] && [ -f "$fname" ] && source "$fname";
+  # source "$fname";
+# done
+# unset fname;
 
 # Check for updates on initial load...
 if [ "$DISABLE_AUTO_UPDATE" != "true" ]; then

@@ -1,14 +1,11 @@
-# Easier navigation
-alias ..    = "cd .."
-alias ...   = "cd ../.."
-alias ....  = "cd ../../.."
-alias ..... = "cd ../../../.."
-
 #shortcuts
-alias ~  = "cd ~" # `cd` is probably faster to type though
-alias dl = "cd ~/Downloads"
-alias dt = "cd ~/Desktop"
-alias rep = "cd ~/dev/"
+# alias ~  = "cd ~" # `cd` is probably faster to type though
+alias dll="cd ~/Downloads"
+# alias dt = "cd ~/Desktop"
+# alias rep = "cd ~/dev/"
+
+#npm
+# alias npmg = "npm list -g --depth=0" # list npm globals
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
@@ -19,26 +16,31 @@ else # macOS `ls`
 fi
 
 # List all files colorized in long format
-alias l = "ls -lF ${colorflag}"
+# alias l = "ls -lF ${colorflag}"
 
 # List all files colorized in long format, including dot files
-alias la = "ls -laF ${colorflag}"
+# alias la = "ls -laF ${colorflag}"
 
 # List only directories
-alias lsd = "ls -lF ${colorflag} | grep --color=never '^d'"
+# alias lsd = "ls -lF ${colorflag} | grep --color=never '^d'"
 
 # Always use color output for `ls`
-alias ls = "command ls ${colorflag}"
+# alias ls = "command ls ${colorflag}"
 
 # Enable aliases to be sudo’ed
-alias sudo = 'sudo '
+#alias sudo = 'sudo '
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill = "ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
+# alias chromekill = "ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Print each PATH entry on a separate line
-alias path = "echo -e ${PATH//:/\\n}"
+#alias path = "echo -e ${PATH//:/\\n}"
 
 # Reload
-alias rld = "source ~/dotfiles/oh-my-zsh.sh"
+#alias rld = "source ~/dotfiles/oh-my-zsh.sh"
+#alias nvimconfig = "nvim ~/dotfiles/oh-my-zsh.sh"
+
+
+
+source ~/.bash_profile

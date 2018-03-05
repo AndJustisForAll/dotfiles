@@ -1,15 +1,21 @@
-" ********************* VIM PLUG *************************** 
+"t ********************* VIM PLUG *************************** 
 call plug#begin()
 
 " NERDTree file explorer
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " NERDTree git plugin
 Plug 'Xuyuanp/nerdtree-git-plugin'
-" Neomake - Async :make & linting framwork
-Plug 'benekastah/neomake'
+" Syntastic - lint
+Plug 'scrooloose/syntastic'
 " Deoplete - Dark powered async completion framwork for neovim 
 if has('nvim')
     Plug 'shougo/deoplete.nvim', { 'do': 'UpdateRemotePlugins' }
+    " Autocomplete flow
+    "https://github.com/wokalski/autocomplete-flow
+    Plug 'wokalski/autocomplete-flow'
+    " For func argument completion
+    Plug 'Shougo/neosnippet'
+    Plug 'Shougo/neosnippet-snippets'
 else
     Plug 'Shougo/deoplete.nvim'
     Plug 'roxma/nvim-yarp'
@@ -25,8 +31,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'davidegx/ctrlp-smarttabs'
 " Airline - file status and tab line bar
 Plug 'bling/vim-airline'
-" JS beautifier
-Plug 'maksimr/vim-jsbeautify'
+" Neoformat
+" !!!Need to install formatters globally. e.g. npm install -g prettier
+Plug 'sbdchd/neoformat'
 " Fugitive Git wrapper
 Plug 'tpope/vim-fugitive'
 " Vim Gitgutter - Git gutter line
@@ -61,6 +68,11 @@ set termguicolors
 "let g:alduin_Shout_Become_Ethereal = 1
 " Dark red special
 " let g:alduin_Shout_Fire_Breath = 1
+" Neoformat - Prettier
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 "JSX for vim
 let g:jsx_ext_required = 0 "JSX within .js files
@@ -71,16 +83,26 @@ autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key='<C-E>' "Redefine trigger
 " Vim -Javascript
 let g:javascript_plugin_jsdoc = 1
-" Deoplete
+" Deoplete & neosnippet
 let g:deoplete#enable_at_startup = 1
+let g:neosnippet#enable_completed_snippet = 1
 " CtrlP - Ignore some folders and files for CtrlP indexing
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|log\|tmp$',
+  \ 'dir':  '\.git$\|\.yardoc\|node_modules\|bower_components\|log\|tmp$',
   \ 'file': '\.so$\|\.dat$|\.DS_Store$'
   \ }
 let g:ctrlp_show_hidden = 1
 " CtrlP Smart tabs
 let g:ctrlp_extensions = ['smarttabs']
+" Syntastic - lint
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Vim Gitgutter
 let g:gitgutter_max_signs = 500  " default value
@@ -104,6 +126,7 @@ set cursorline " highlight current line
 set wildmenu " visual autocomplete for command menu
 set lazyredraw " redraw only when we need to
 set showmatch " highlight matching [{()}]
+        
 
 " ******************* Searching *******************************"
 set incsearch " search as characters are entered 
@@ -149,8 +172,7 @@ nnoremap <leader>2 :CtrlPSmartTabs<CR>
 nnoremap <leader>; :
 " Switch between VIM viewports
 nnoremap <leader><tab> <c-w>w
-" Format JS code
-nnoremap <leader>// :call JsBeautify()<CR>
+nnoremap <leader>// :Neoformat<CR>
 " Far -search and replace
 nnoremap <leader>ff :Farp
 nnoremap <leader>fd :Fardo
