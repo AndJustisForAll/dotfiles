@@ -5,6 +5,8 @@ echo Removing default oh-my-zsh.sh
 rm ~/.oh-my-zsh/oh-my-zsh.sh
 echo Creating Symlink to ~/.oh-my-zsh/oh-my-zsh.sh
 ln -sf ~/dotfiles/oh-my-zsh.sh ~/.oh-my-zsh/oh-my-zsh.sh
+echo Creating Symlink to ~/.jsbeautifyrc
+ln -sf ~/dotfiles/.jsbeautifyrc ~/.jsbeautifyrc
 echo Installing vim-plug
 #https://github.com/junegunn/vim-plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \

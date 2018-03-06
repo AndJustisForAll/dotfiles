@@ -44,8 +44,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 " Emmet for Vim
 Plug 'mattn/emmet-vim'
-" Vim JSX
-Plug 'mxw/vim-jsx'
 "Seoul256 Theme
 Plug 'junegunn/seoul256.vim'
 "Alduin Theme
@@ -68,14 +66,7 @@ set termguicolors
 "let g:alduin_Shout_Become_Ethereal = 1
 " Dark red special
 " let g:alduin_Shout_Fire_Breath = 1
-" Neoformat - Prettier
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
-
-"JSX for vim
-let g:jsx_ext_required = 0 "JSX within .js files
+"
 " Emmet for Vim
 let g:user_emmet_mode='n'    "only enable normal mode functions.
 let g:user_emmet_install_global = 0 " only Enable for html/css
